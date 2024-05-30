@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "cypress": "^13.10.0"
+  },
+  "name": "cypress_javascript",
+  "description": "<h2>UI Автотесты на фреймворке Cypress</h2>",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
