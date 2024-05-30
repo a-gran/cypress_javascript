@@ -1,5 +1,5 @@
-describe('Проверка авторизации', function () {
-    beforeEach('Начало теста', function () {
+describe('Проверка авторизации', () => {
+    beforeEach('Начало теста', () => {
         cy.visit('/')
         cy.get('#forgotEmailButton').should(
             'have.css',
@@ -8,11 +8,11 @@ describe('Проверка авторизации', function () {
         )
     })
 
-    afterEach('Конец теста', function () {
+    afterEach('Конец теста', () => {
         cy.get('#exitMessageButton > .exitIcon').should('be.visible')
     })
 
-    it('Верный пароль и верный логин', function () {
+    it('Верный пароль и верный логин', () => {
         cy.get('#mail').type('german@dolnikov.ru')
         cy.get('#pass').type('iLoveqastudio1')
         cy.get('#loginButton').click()
@@ -20,14 +20,15 @@ describe('Проверка авторизации', function () {
         cy.get('#messageHeader').contains('Авторизация прошла успешно')
     })
 
-    it('Верный логин и неверный пароль', function () {
+    it('Верный логин и неверный пароль', () => {
         cy.get('#mail').type('german@dolnikov.ru')
         cy.get('#pass').type('iLoveqastudio2')
         cy.get('#loginButton').click()
         cy.get('#messageHeader').should('be.visible')
         cy.get('#messageHeader').contains('Такого логина или пароля нет')
     })
-    it('Валидация на наличие @', function () {
+
+    it('Валидация на наличие @', () => {
         cy.get('#mail').type('germandolnikov.ru')
         cy.get('#pass').type('iLoveqastudio')
         cy.get('#loginButton').click()
@@ -35,7 +36,7 @@ describe('Проверка авторизации', function () {
         cy.get('#messageHeader').contains('Нужно исправить проблему валидации')
     })
 
-    it('Восстановление пароля', function () {
+    it('Восстановление пароля', () => {
         cy.get('#forgotEmailButton').click()
         cy.get('#mailForgot').type('german@dolnikov.ru')
         cy.get('#restoreEmailButton').click()

@@ -2,8 +2,8 @@ import * as main_page from '../locators/main_page.json'
 import * as recovery_password_page from '../locators/recovery_password_page.json'
 import * as result_page from '../locators/result_page.json'
 
-describe('Проверка авторизации', function () {
-    beforeEach('Начало теста', function () {
+describe('Проверка авторизации', () => {
+    beforeEach('Начало теста', () => {
         cy.visit('/')
         cy.get(main_page.fogot_pass_btn).should(
             'have.css',
@@ -12,11 +12,11 @@ describe('Проверка авторизации', function () {
         )
     })
 
-    afterEach('Конец теста', function () {
+    afterEach('Конец теста', () => {
         cy.get(result_page.close).should('be.visible')
     })
 
-    it('Верный пароль и верный логин', function () {
+    it('Верный пароль и верный логин', () => {
         cy.get(main_page.email).type('german@dolnikov.ru')
         cy.get(main_page.password).type('iLoveqastudio1')
         cy.get(main_page.login_button).click()
@@ -24,7 +24,7 @@ describe('Проверка авторизации', function () {
         cy.get(result_page.title).contains('Авторизация прошла успешно')
     })
 
-    it('Верный логин и неверный пароль', function () {
+    it('Верный логин и неверный пароль', () => {
         cy.get(main_page.email).type('german@dolnikov.ru')
         cy.get(main_page.password).type('iLoveqastudio2')
         cy.get(main_page.login_button).click()
@@ -32,7 +32,7 @@ describe('Проверка авторизации', function () {
         cy.get(result_page.title).contains('Такого логина или пароля нет')
     })
 
-    it('Валидация на наличие @', function () {
+    it('Валидация на наличие @', () => {
         cy.get(main_page.email).type('germandolnikov.ru')
         cy.get(main_page.password).type('iLoveqastudio')
         cy.get(main_page.login_button).click()
@@ -40,7 +40,7 @@ describe('Проверка авторизации', function () {
         cy.get(result_page.title).contains('Нужно исправить проблему валидации')
     })
 
-    it('Восстановление пароля', function () {
+    it('Восстановление пароля', () => {
         cy.get(main_page.fogot_pass_btn).click()
         cy.get(recovery_password_page.email).type('german@dolnikov.ru')
         cy.get(recovery_password_page.send_button).click()

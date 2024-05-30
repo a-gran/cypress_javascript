@@ -1,5 +1,5 @@
-describe('Проверка авторизации', function () {
-    it('Верный пароль и верный логин', function () {
+describe('Проверка авторизации', () => {
+    it('Верный пароль и верный логин', () => {
         cy.visit('/')
         cy.get('#forgotEmailButton').should(
             'have.css',
@@ -14,7 +14,7 @@ describe('Проверка авторизации', function () {
         cy.get('#exitMessageButton > .exitIcon').should('be.visible')
     })
 
-    it('Верный логин и неверный пароль', function () {
+    it('Верный логин и неверный пароль', () => {
         cy.visit('/')
         cy.get('#forgotEmailButton').should(
             'have.css',
@@ -29,7 +29,7 @@ describe('Проверка авторизации', function () {
         cy.get('#exitMessageButton > .exitIcon').should('be.visible')
     })
 
-    it('Валидация на наличие @', function () {
+    it('Валидация на наличие @', () => {
         cy.visit('/')
         cy.get('#forgotEmailButton').should(
             'have.css',
@@ -44,7 +44,7 @@ describe('Проверка авторизации', function () {
         cy.get('#exitMessageButton > .exitIcon').should('be.visible')
     })
 
-    it('Восстановление пароля', function () {
+    it('Восстановление пароля', () => {
         cy.visit('/')
         cy.get('#forgotEmailButton').should(
             'have.css',
