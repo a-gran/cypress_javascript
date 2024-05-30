@@ -17,16 +17,16 @@
 ## Детали реализации
 
 1. baseUrl вынесен в переменные конфига
-   ![image](https://raw.githubusercontent.com/German-D/new_cypress/main/static/baseUrl.png)
+   ![image](https://github.com/a-gran/cypress_javascript/blob/main/static/baseUrl.png)
 
 2. Применение хуков beforeEach и afterEach
-   ![image](https://raw.githubusercontent.com/German-D/new_cypress/main/static/hooks.png)
+   ![image](https://github.com/a-gran/cypress_javascript/blob/main/static/hooks.png)
 
 3. Переменные данные для авторизации вынесены в отдельный файл
-   ![image](https://raw.githubusercontent.com/German-D/new_cypress/main/static/user_data.png)
+   ![image](https://github.com/a-gran/cypress_javascript/blob/main/static/user_data.png)
 
 4. Каждая страница описана в формате объекта с локаторами
-   ![image](https://raw.githubusercontent.com/German-D/new_cypress/main/static/locators.png)
+   ![image](https://github.com/a-gran/cypress_javascript/blob/main/static/locators.png)
 
 ## Локальный запуск тестов (из терминала)
 
@@ -39,21 +39,21 @@ npx cypress run --spec cypress/e2e/lesson_locators.cy.js --browser chrome
 ```
 
 Ожидаемый результат: получим отчет о прохождении тестов.
-![image](https://raw.githubusercontent.com/German-D/new_cypress/main/static/Cypress_cli.png)
+![image](https://github.com/a-gran/cypress_javascript/blob/main/static/Cypress_cli.png)
 
 ## Локальный запуск через Cypress UI
 
 1. Скачать проект и открыть в терминале.
 2. Перейти в директорию проекта.
-3. В терминале в папке с проектом запустить npm `npm i`
-4. В терминале в папке с проектом запустить npm `install --save-dev cypress@12.7.0`
+3. В терминале в папке с проектом запустить npm `install --save-dev cypress@12.7.0`
+4. В терминале в папке с проектом запустить npm `npm i`
 5. В терминале в папке с проектом запустить npm `npx cypress open`
 6. Выбрать в Cypress UI E2E тестирование и браузер Google Chrome
 7. Выбрать спеку lesson_locators
 
 Ожидаемый результат: получим отчет о прохождении тестов.
-![image](https://raw.githubusercontent.com/German-D/new_cypress/main/static/Cypress_UI.png)
+![image](https://github.com/a-gran/cypress_javascript/blob/main/static/Cypress_UI.png)
 
 ## Автор
 
-Шрамко Алексей ([@a-gran](https://t.me/a_gran))
+Шрамко Алексей ([@a_gran](https://t.me/a_gran))
