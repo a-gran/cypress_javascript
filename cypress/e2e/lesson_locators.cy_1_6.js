@@ -32,6 +32,14 @@ describe('Проверка авторизации', () => {
         cy.get(result_page.title).contains('Такого логина или пароля нет')
     })
 
+    it('Неверный логин и верный пароль', () => {
+        cy.get(main_page.email).type('german@dolnikov1.ru')
+        cy.get(main_page.password).type('iLoveqastudio1')
+        cy.get(main_page.login_button).click()
+        cy.get(result_page.title).should('be.visible')
+        cy.get(result_page.title).contains('Такого логина или пароля нет')
+    })
+
     it('Валидация на наличие @', () => {
         cy.get(main_page.email).type('germandolnikov.ru')
         cy.get(main_page.password).type('iLoveqastudio')
@@ -45,6 +53,14 @@ describe('Проверка авторизации', () => {
         cy.get(recovery_password_page.email).type('german@dolnikov.ru')
         cy.get(recovery_password_page.send_button).click()
         cy.get(result_page.title).contains('Успешно отправили пароль на e-mail')
+    })
+
+    it('Логин со строчными буквами и верный пароль', () => {
+        cy.get(main_page.email).type('GerMan@Dolnikov.ru')
+        cy.get(main_page.password).type('iLoveqastudio1')
+        cy.get(main_page.login_button).click()
+        cy.get(result_page.title).should('be.visible')
+        cy.get(result_page.title).contains('Авторизация прошла успешно')
     })
 })
 

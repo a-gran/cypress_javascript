@@ -25,6 +25,16 @@ describe('Проверка авторизации', () => {
         cy.get('#messageHeader').contains('Такого логина или пароля нет')
         cy.get('#exitMessageButton > .exitIcon').should('be.visible')
     })
+
+    it('Неверный логин и верный пароль', () => {
+        cy.get('#mail').type('german@dolnikov1.ru')
+        cy.get('#pass').type('iLoveqastudio1')
+        cy.get('#loginButton').click()
+        cy.get('#messageHeader').should('be.visible')
+        cy.get('#messageHeader').contains('Такого логина или пароля нет')
+        cy.get('#exitMessageButton > .exitIcon').should('be.visible')
+    })
+
     it('Валидация на наличие @', () => {
         cy.get('#mail').type('germandolnikov.ru')
         cy.get('#pass').type('iLoveqastudio')
@@ -39,6 +49,16 @@ describe('Проверка авторизации', () => {
         cy.get('#mailForgot').type('german@dolnikov.ru')
         cy.get('#restoreEmailButton').click()
         cy.get('#messageHeader').contains('Успешно отправили пароль на e-mail')
+        cy.get('#exitMessageButton > .exitIcon').should('be.visible')
+    })
+
+    // 6 Проверка на приведение к строчным буквам в логине
+    it('Логин со строчными буквами и верный пароль', () => {
+        cy.get('#mail').type('GerMan@Dolnikov.ru')
+        cy.get('#pass').type('iLoveqastudio1')
+        cy.get('#loginButton').click()
+        cy.get('#messageHeader').should('be.visible')
+        cy.get('#messageHeader').contains('Авторизация прошла успешно')
         cy.get('#exitMessageButton > .exitIcon').should('be.visible')
     })
 })
